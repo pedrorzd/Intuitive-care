@@ -11,25 +11,25 @@ import java.util.Map;
 
 public class WebScraper {
 
-    private static final String ANS_URL = "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-dasociedade/atualizacao-do-rol-de-procedimentos";
+    private static final String ANS_URL = "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos";
 
     public static Map<String, String> buscarLinksAnexos() {
         Map<String, String> anexos = new HashMap<>();
 
         try {
             Document doc = Jsoup.connect(ANS_URL).get();
-
-            Elements links = doc.select("a[href]");
+            Elements links = doc.select("a");
 
             for (Element link : links) {
                 String url = link.absUrl("href");
-                String texto = link.text();
+                String texto = link.text().trim();
 
-                if (texto.contains("Anexo I")) {
-                    anexos.put("Anexo I", url);
-                } else if (texto.contains("Anexo II")) {
+                if (texto.contains("Anexo II.")) {
                     anexos.put("Anexo II", url);
+                } else if (texto.contains("Anexo I.")) {
+                    anexos.put("Anexo I", url);
                 }
+
             }
 
             if (anexos.isEmpty()) {

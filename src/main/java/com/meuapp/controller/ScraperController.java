@@ -1,7 +1,6 @@
 package com.meuapp.controller;
 
 import com.meuapp.service.FileDownloader;
-import com.meuapp.service.FileZipper;
 import com.meuapp.service.WebScraper;
 
 import java.io.IOException;
@@ -23,11 +22,11 @@ public class ScraperController {
                 FileDownloader.downloadFile(fileURL, OUTPUT_FOLDER + fileName);
             }
 
-            // Compactar os arquivos baixados em um ZIP
-            FileZipper.zipFiles(OUTPUT_FOLDER, OUTPUT_FOLDER + "anexos.zip");
-
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        finally {
+            System.out.println("Finalizando scraping");
         }
     }
 }

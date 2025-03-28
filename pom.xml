@@ -17,20 +17,6 @@
             <version>1.15.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
-        <dependency>
-            <groupId>org.apache.pdfbox</groupId>
-            <artifactId>pdfbox</artifactId>
-            <version>3.0.3</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
-        <dependency>
-            <groupId>com.opencsv</groupId>
-            <artifactId>opencsv</artifactId>
-            <version>5.9</version>
-        </dependency>
-
     </dependencies>
 
     <build>
